@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="src/style.css" />
+    <title>Vanilla weather app</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Abel&family=Dosis&family=Kdam+Thmor+Pro&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi"
+      crossorigin="anonymous"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>
+  </head>
+  <body>
+    <center>
+      <div class="toggle">
+        <input type="checkbox" id="toggle" />
+        <label for="toggle">
+          <svg
+            version="1.1"
+            class="moon"
+            id="Layer_1"
+            xmlns="http://www.w3.org/2000/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink"
+            x="0px"
+            y="0px"
+            viewBox="0 0 64 64"
+            enable-background="new 0 0 64 64"
+            xml:space="preserve"
+          >
+            <path
+              id="Moon"
+              d="M63.4374046,38.4606323c-0.4258003-0.2060013-0.9384995-0.0848999-1.2276001,0.2910995
+	c-1.2803001,1.6650009-2.9452972,3.2001991-4.9501991,4.5625c-11.6180992,7.8808022-27.544899,4.9248009-35.4971008-6.5956993
+	c-7.8154011-11.3204002-4.9902-26.9736996,6.2968998-34.8936005c0.3799-0.2666,0.5263996-0.7588,0.3544998-1.1895001
+	c-0.1728001-0.4316-0.625-0.6835-1.0771008-0.6181c-4.6474991,0.6953-9.2070999,2.4902-13.1875,5.1893997
+	C6.9706059,10.0759325,2.1415057,17.427433,0.5526057,25.9079323c-1.582,8.4414024,0.2402,16.9932022,5.1308002,24.0791016
+	c6.2872,9.1054993,16.4864006,14.0058975,26.8554993,14.0058975c6.3173981,0,12.6982994-1.819397,18.2939987-5.6161995
+	c6.5800018-4.461998,11.2461014-11.1298981,13.1406021-18.7753983
+	C64.0877075,39.142334,63.8631058,38.6657333,63.4374046,38.4606323z M49.7098045,56.7224312
+	c-13.8710976,9.410099-32.8847961,5.8828011-42.3798981-7.872097c-4.5858998-6.642601-6.2948999-14.660202-4.8114996-22.5742016
+	C4.0086055,18.3239326,8.5379057,11.4294329,15.2723055,6.861033c2.5801001-1.75,5.4189997-3.0937002,8.3643007-3.9726
+	c-9.3916006,9.0702991-11.1416006,23.9258003-3.5205002,34.9668007
+	c8.5741997,12.4188995,25.7422009,15.6094017,38.2666016,7.1133003c0.8260994-0.5606003,1.5996017-1.149498,2.3182983-1.764698
+	C58.4803047,48.6472321,54.6766052,53.3542328,49.7098045,56.7224312z"
+            />
+          </svg>
+          <svg
+            version="1.1"
+            class="sun"
+            id="Capa_1"
+            xmlns="http://www.w3.org/2000/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink"
+            x="0px"
+            y="0px"
+            viewBox="0 0 212.741 212.741"
+            style="enable-background: new 0 0 212.741 212.741"
+            xml:space="preserve"
+          >
+            <path
+              style="fill: #010002"
+              d="M106.392,56.537c-26.287,0-47.67,21.387-47.67,47.667c0,26.283,21.384,47.67,47.67,47.67
+			c26.29,0,47.674-21.391,47.674-47.67C154.066,77.921,132.682,56.537,106.392,56.537z M106.392,145.4
+			c-22.754,0-41.261-18.481-41.261-41.2c0-22.74,18.506-41.232,41.261-41.232c22.74,0,41.239,18.492,41.239,41.232
+			C147.631,126.919,129.132,145.4,106.392,145.4z"
+            />
+            <path
+              style="fill: #010002"
+              d="M34.178,104.204c0-1.782-1.435-3.221-3.203-3.221H3.189c-1.761,0-3.189,1.442-3.189,3.221
+			c0,1.768,1.428,3.207,3.189,3.207h27.786C32.743,107.41,34.178,105.968,34.178,104.204z"
+            />
+            <path
+              style="fill: #010002"
+              d="M53.608,49.866c1.192,1.192,3.353,1.167,4.538,0c1.238-1.249,1.245-3.296,0-4.542l-17.78-17.765
+			C39.747,26.94,38.952,26.6,38.1,26.6c-0.852,0-1.657,0.34-2.262,0.952c-1.256,1.242-1.242,3.275,0,4.527L53.608,49.866z"
+            />
+            <path
+              style="fill: #010002"
+              d="M57.594,157.571c-0.866,0-1.664,0.34-2.28,0.956L37.535,176.3c-1.256,1.256-1.256,3.31,0,4.57
+			c1.557,1.528,2.985,1.542,4.57-0.032l17.765-17.773c1.238-1.249,1.238-3.296-0.014-4.549
+			C59.259,157.908,58.446,157.571,57.594,157.571z"
+            />
+            <path
+              style="fill: #010002"
+              d="M209.545,100.979h-27.779c-1.768,0-3.203,1.442-3.203,3.221c0,1.768,1.432,3.207,3.203,3.207
+			h27.779c1.768,0,3.196-1.442,3.196-3.207C212.741,102.421,211.313,100.979,209.545,100.979z"
+            />
+            <path
+              style="fill: #010002"
+              d="M159.155,49.848l17.758-17.773c1.242-1.249,1.249-3.282,0.007-4.506
+			c-0.619-0.626-1.424-0.966-2.28-0.966c-0.848,0-1.657,0.34-2.262,0.952l-17.79,17.78c-1.249,1.238-1.242,3.285,0.014,4.542
+			C155.766,51.029,157.92,51.072,159.155,49.848z"
+            />
+            <path
+              style="fill: #010002"
+              d="M157.419,158.531c-0.612-0.623-1.414-0.963-2.273-0.963c-0.848,0-1.65,0.34-2.265,0.956
+			c-1.267,1.274-1.267,3.271,0,4.542l17.765,17.805c1.016,0.998,2.623,1.893,4.585-0.039c1.22-1.224,1.22-3.278-0.036-4.534
+			L157.419,158.531z"
+            />
+            <path
+              style="fill: #010002"
+              d="M104.431,178.955c-1.714,0.014-3.157,1.449-3.157,3.207v25.184c0,0.848,0.333,1.643,0.923,2.226
+			c0.619,0.63,1.414,0.963,2.294,0.981c1.768-0.029,3.207-1.471,3.214-3.235l-0.007-25.156
+			C107.698,180.408,106.235,178.969,104.431,178.955z"
+            />
+            <path
+              style="fill: #010002"
+              d="M104.488,33.768c1.768-0.029,3.207-1.471,3.214-3.239l-0.007-25.127
+			c0-1.761-1.464-3.196-3.267-3.214c-1.714,0.021-3.157,1.457-3.157,3.214v25.156c0,1.088,0.505,1.814,0.923,2.23
+			C102.817,33.414,103.611,33.747,104.488,33.768z"
+            />
+          </svg>
+        </label>
+        <div class="container">
+          <div class="card">
+            <div class="card-body">
+              <form id="search-form">
+                <input
+                  type="text"
+                  id="city-input"
+                  placeholder="Enter a city..."
+                />
+                <button type="submit" class="btn btn-primary" id="search">
+                  Search
+                </button>
+              </form>
+              <button class="btn btn-secondary" id="current-city">
+                Current location
+              </button>
+              <section class="current">
+                <h1 id="city"></h1>
+                <h2></h2>
+                <p class="description" id="description"></p>
+                <div class="row">
+                  <div class="col-6">
+                    <div class="current-temperature">
+                      <img
+                        src="https://shecodes-assets.s3.amazonaws.com/api/weather/icons/few-clouds-day.png"
+                        alt="clear"
+                        id="icon"
+                      />
+                      <span id="degrees"></span>
+                      <div class="units">
+                        <a href="#" id="celsius" class="active">°C</a> |
+                        <a href="#" id="fahrenheit" class="inactive">°F</a>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-6 current-details">
+                    <div>Feels like: <span id="feels"></span> °C</div>
+                    <div>Humidity: <span id="humidity"></span>%</div>
+                    <div>Wind: <span id="wind"></span> km/h</div>
+                  </div>
+                </div>
+              </section>
+            </div>
+          </div>
+          <p>
+            Open source code on
+            <a
+              target="_blank"
+              href="https://github.com/eliztorr/Weather-App-Plus/"
+              >Github</a
+            >
+            and hosted on<a target="_blank" href=""> Netlify </a> by
+            <a
+              target="_blank"
+              href="https://www.linkedin.com/in/elizabethtorralbo/"
+              >Elizabeth Torralbo</a
+            >
+          </p>
+        </div>
+      </div>
+    </center>
+  </body>
+  <script src="src/script.js"></script>
+</html>
