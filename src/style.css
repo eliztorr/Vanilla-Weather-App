@@ -11,20 +11,38 @@ h2 {
 }
 p {
   margin-top: 5px;
-  color: grey;
+  color: rgb(19, 34, 66);
   font-family: "Dosis", sans-serif;
   font-size: 20px;
 }
 .dark p {
   color: white;
 }
+.dark p a {
+  text-decoration: none;
+  color: white;
+}
+.dark p a:hover {
+  color: rgb(216, 15, 149);
+}
 p a {
-  color: grey;
+  color: rgb(19, 34, 66);
   text-decoration: none;
 }
-.dark a {
-  color: whitesmoke;
+.dark .current-temperature a {
   text-decoration: none;
+  color: white;
+}
+.dark .current-temperature a:hover {
+  color: rgb(216, 15, 149);
+}
+.current-temperature a {
+  text-decoration: none;
+  color: black;
+}
+.current-temperature .active:hover {
+  text-decoration: none;
+  color: rgb(12, 141, 247);
 }
 form {
   float: left;
@@ -182,26 +200,9 @@ input:checked + label svg.moon {
   font-size: 22px;
   color: black;
 }
-.dark .current-temperature .units {
-  color: white;
-}
-.units a {
-  text-decoration: none;
-  color: blue;
-}
-.dark .units a {
-  text-decoration: none;
-  color: white;
-}
 .current-temperature .active {
   color: black;
   cursor: default;
-  text-decoration: none;
-}
-.dark .current-temperature .active {
-  color: white;
-}
-.current-temperature .active:hover {
   text-decoration: none;
 }
 .current-details {
