@@ -5,20 +5,17 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="src/style.css" />
-    <title>Vanilla weather app</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Abel&family=Dosis&family=Kdam+Thmor+Pro&display=swap"
-      rel="stylesheet"
-    />
+    <title>weather app</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cabin&family=M+PLUS+Code+Latin:wght@200&display=swap" rel="stylesheet">
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
       rel="stylesheet"
       integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi"
       crossorigin="anonymous"
     />
-    <script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
   </head>
   <body>
     <center>
@@ -121,8 +118,6 @@
           </svg>
         </label>
         <div class="container">
-          <div class="card">
-            <div class="card-body">
               <form id="search-form">
                 <input
                   type="text"
@@ -137,9 +132,8 @@
                 Current location
               </button>
               <section class="current">
-                <h1 id="city"></h1>
-                <h2></h2>
-                <p class="description" id="description"></p>
+                 <h4></h4>
+                <strong><h1 id="city"></h1></strong>
                 <div class="row">
                   <div class="col-6">
                     <div class="current-temperature">
@@ -149,9 +143,7 @@
                         id="icon"
                       />
                       <span id="degrees"></span>
-                      <div class="units"></div>
-                        <a href="#" id="celsius" class="active current-temperature">°C</a> |
-                        <a href="#" id="fahrenheit" class="current-temperature">°F</a>
+                      <p class="description" id="description"></p>
                       </div>
                     </div>
                   <div class="col-6 current-details">
@@ -160,21 +152,21 @@
                     <div>Wind: <span id="wind"></span> km/h</div>
                   </div>
             </div>
+             <div class="weather-forecast" id="forecast"></div>
           </div>
           </div>
-          <p>
-            Open source code on
+          <p class="footer">
+            Open source code by
+            <a 
+              target="_blank"
+              href="https://www.linkedin.com/in/elizabethtorralbo/"
+              >Elizabeth Torralbo</a> available on 
             <a
               target="_blank"
               href="https://github.com/eliztorr/Vanilla-Weather-App"
               >Github</a
             >
-            and hosted on<a target="_blank" href="https://vocal-sprinkles-be3515.netlify.app"> Netlify </a> by
-            <a
-              target="_blank"
-              href="https://www.linkedin.com/in/elizabethtorralbo/"
-              >Elizabeth Torralbo</a
-            >
+            and hosted on<a target="_blank" href="https://vocal-sprinkles-be3515.netlify.app"> Netlify </a> 
           </p>
         </div>
       </div>
