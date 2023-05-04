@@ -2,6 +2,11 @@ body {
   background: url("media/day.jpg");
   background-size: cover;
 }
+.dark {
+  background: url("media/night.jpg");
+  background-size: cover;
+  color: white;
+}
 h1 {
   padding: 10px;
 }
@@ -44,11 +49,6 @@ form {
   border-width: 0.1px;
   padding: 3px 12px 3px 12px;
 }
-.dark {
-  background: url("media/night.jpg");
-  background-size: cover;
-  color: white;
-}
 #search {
   background: rgb(42, 133, 236);
   border: rgb(12, 141, 247);
@@ -81,7 +81,7 @@ form {
 .dark #current-city:hover {
   background: rgb(216, 15, 149);
 }
-.container {
+.container-sm {
   padding: 30px 40px;
   margin-top: 50px;
   font-size: 24px;
