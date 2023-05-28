@@ -193,3 +193,33 @@ input:checked + label svg.sun {
 input:checked + label svg.moon {
   fill: #fff;
 }
+@media only screen and (max-width: 576px) {
+  body {
+    font-size: 10px !important;
+  }
+  h1 {
+    font-size: 40px !important;
+  }
+  h4 {
+    font-size: 18px !important;
+  }
+  #city-input {
+    width: 120px;
+    height: 30px;
+  }
+  .container-sm {
+    padding: 20px 20px;
+    margin-top: 30px;
+    font-size: 18px;
+    font-family: "Cabin", sans-serif;
+  }
+  #current-city {
+    font-size: 14px !important;
+  }
+  #search {
+    font-size: 14px !important;
+  }
+  .footer {
+    font-size: 16px !important;
+  }
+}
