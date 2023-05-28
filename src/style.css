@@ -89,8 +89,8 @@ form {
   border-radius: 20px;
   font-family: "Cabin", sans-serif;
 }
-.dark .container {
-  background-color: #211a24;
+.dark .container-sm {
+  background-color: #1d181f;
 }
 .description {
   font-size: 30px;
